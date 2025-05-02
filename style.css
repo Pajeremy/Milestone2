@@ -1,0 +1,260 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.controls, .date-filters {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls label, .date-filters label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.chart-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-sizing: border-box;
+  position: relative;
+  height: calc((100vh - 200px) / 2);
+  min-height: 300px;
+}
+
+.chart-header {
+  margin-bottom: 15px;
+}
+
+.chart-header h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.region-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.metric-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.region-filters label,
+.metric-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.region-filters input[type="checkbox"],
+.metric-checkboxes input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.metric-checkboxes label span {
+  font-weight: 500;
+}
+
+select, input[type="date"] {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.chart {
+  width: 100%;
+  height: calc(100% - 60px); /* Subtract header height */
+  position: relative;
+  overflow: visible;
+}
+
+.chart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  pointer-events: none;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 150px;
+  transform: translate(-50%, -100%);
+  transition: all 0.1s ease;
+  margin-top: -10px;
+}
+
+.tooltip strong {
+  display: block;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 3px;
+  font-weight: 600;
+}
+
+.tooltip span {
+  display: block;
+  line-height: 1.4;
+  white-space: nowrap;
+  padding: 2px 0;
+}
+
+.tooltip-line {
+  pointer-events: none;
+}
+
+.tooltip-dot {
+  pointer-events: none;
+  fill: #fff;
+  stroke-width: 2px;
+  r: 4;
+}
+
+.chart-container:hover .tooltip {
+  z-index: 1000;
+}
+
+.tooltip-line {
+  transition: transform 0.1s ease;
+}
+
+.tooltip-dots circle {
+  transition: opacity 0.1s ease;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.recession-background {
+  pointer-events: none;
+}
+
+.recession-background rect {
+  z-index: -1;
+}
+
+.recession-background text {
+  z-index: 1;
+  font-family: sans-serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+.filters label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filters input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.dashboard-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.stats-container {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.stat-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.positive-change {
+  color: #2ca02c;
+}
+
+.negative-change {
+  color: #d62728;
+}
